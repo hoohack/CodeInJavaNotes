@@ -1,4 +1,4 @@
-package chapter7;
+package chapter8;
 
 public class InsufficientException extends Exception {
 
