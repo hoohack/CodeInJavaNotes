@@ -39,37 +39,33 @@ public class CashCard {
     }
 
     public void store(int money) {
-        assert money >= 0 : "不能存负数";
-
         if (money > 0) {
             this.balance += money;
             if (money >= 100) {
                 this.bonus++;
             }
         } else {
-            throw new IllegalArgumentException();
+            System.out.println("存储负值，错误");
         }
     }
 
-    public void charge(int money) throws InsufficientException {
-        assert money >= 0 : "不能取负数";
-
+    public void charge(int money) {
         if (money > 0) {
             if (money <= this.balance) {
                 this.balance -= money;
             } else {
-                throw new InsufficientException("余额不足", this.balance);
+                System.out.println("余额不足");
             }
         } else {
-            throw new IllegalArgumentException();
+            System.out.println("不能取负数");
         }
     }
 
-    public int exchange(int bonus) throws InsufficientException {
+    public int exchange(int bonus) {
         if (bonus > 0) {
             this.bonus = bonus;
         } else {
-            throw new InsufficientException("点数不足", bonus);
+            System.out.println("点数不足");
         }
 
         return this.bonus;
